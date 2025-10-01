@@ -1,0 +1,66 @@
+[
+  {
+    "id": 1,
+    "name": "Fyodor Dostoevsky",
+    "title": "Crime and Punishment",
+    "price": 399,
+    "category": "Classic Literature",
+    "image": "https://covers.openlibrary.org/b/id/8231996-L.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Franz Kafka",
+    "title": "The Metamorphosis",
+    "price": "free",
+    "category": "Philosophical Fiction",
+    "image": "https://covers.openlibrary.org/b/id/7222246-L.jpg"
+  },
+  {
+    "id": 3,
+    "name": "George Orwell",
+    "title": "1984",
+    "price": 299,
+    "category": "Dystopian",
+    "image": "https://covers.openlibrary.org/b/id/7222246-L.jpg"
+  },
+  {
+    "id": 4,
+    "name": "Jane Austen",
+    "title": "Pride and Prejudice",
+    "price": "free",
+    "category": "Romance",
+    "image": "https://covers.openlibrary.org/b/id/8091016-L.jpg"
+  },
+  {
+    "id": 5,
+    "name": "J. R. R. Tolkien",
+    "title": "The Lord of the Rings",
+    "price": 599,
+    "category": "Fantasy",
+    "image": "https://covers.openlibrary.org/b/id/8728696-L.jpg"
+  },
+  {
+    "id": 6,
+    "name": "Harper Lee",
+    "title": "To Kill a Mockingbird",
+    "price": 279,
+    "category": "Classic Fiction",
+    "image": "https://covers.openlibrary.org/b/id/8225264-L.jpg"
+  },
+  {
+    "id": 7,
+    "name": "Leo Tolstoy",
+    "title": "War and Peace",
+    "price": "free",
+    "category": "Historical",
+    "image": "https://covers.openlibrary.org/b/id/7222161-L.jpg"
+  },
+  {
+    "id": 8,
+    "name": "Ernest Hemingway",
+    "title": "The Old Man and the Sea",
+    "price": 199,
+    "category": "Novella",
+    "image": "https://covers.openlibrary.org/b/id/11153244-L.jpg"
+  }
+]

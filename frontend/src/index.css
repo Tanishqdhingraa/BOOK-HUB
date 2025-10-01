@@ -1,0 +1,83 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import "tailwindcss";
+@plugin "daisyui";
+
+
+body{
+    font-family: "Poppins";
+}
+.animate-scroll {
+  display: flex;
+  animation: scroll 18s linear infinite; /* slowed down */
+  animation-iteration-count: infinite;
+  gap: 4rem; /* spacing between items */
+  will-change: transform; /* optimization */
+}
+
+/* Keyframes for smooth scroll */
+@keyframes scroll {
+  0% {
+    transform: translateX(20%);
+  }
+  50% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+/* Make items pop on hover */
+.animate-scroll img {
+  transition: transform 1.5s ease, filter 1.5s ease; /* smoother + slower */
+}
+
+.animate-scroll img:hover {
+  transform: scale(1.15) rotate(-3deg);
+  filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.4));
+  cursor: pointer;
+}
+
+/* Optional subtle blur for depth */
+.animate-scroll img:not(:hover) {
+  filter: brightness(0.9) blur(0.5px);
+  transition: filter 0.4s ease;
+}
+
+/*Notes on Functionality
+🔹 Container (.animate-scroll)
+
+display: flex; → Places items in a row (side by side).
+
+animation: scroll 18s linear infinite; → Runs the scroll animation for 18 seconds, repeating forever with a constant speed.
+
+gap: 4rem; → Adds space between items for better readability.
+
+will-change: transform; → Hint to the browser that transform will change frequently (makes animations smoother).
+
+🔹 Keyframes (@keyframes scroll)
+
+0% { transform: translateX(100%); } → Items start fully outside on the right.
+
+50% { transform: translateX(-50%); } → Midway, items are halfway off to the left.
+
+100% { transform: translateX(-100%); } → Items finish moving fully off-screen to the left.
+
+🔹 Images Default (.animate-scroll img)
+
+transition: transform 1.5s ease, filter 1.5s ease; → Smooth, gradual scaling + filter effects when hovering.
+
+🔹 Images on Hover (.animate-scroll img:hover)
+
+transform: scale(1.15) rotate(-3deg); → Makes the image bigger and slightly tilted for a playful effect.
+
+filter: drop-shadow(...) → Adds a shadow glow so the hovered item pops out.
+
+cursor: pointer; → Changes cursor to hand icon → indicates interactivity.
+
+🔹 Images Not Hovered (.animate-scroll img:not(:hover))
+
+filter: brightness(0.9) blur(0.5px); → Dim + slightly blur inactive items → puts focus on hovered one.
+
+transition: filter 0.4s ease; → Makes blur effect appear smoothly.*/
