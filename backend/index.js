@@ -1,38 +1,37 @@
-// server.js
 import mongoose from "mongoose";
 import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
-import {
-  createUser,
-  getUsers,
-  getUserById,
-  updateUser,
-  deleteUser
-} from "./controllers/usercontroller.js";  // <-- added .js
+
+import bookRoute from "./routes/book.route.js";
+import userRoute from "./routes/user.route.js";   // ✅ FIXED — added user route
 
 dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 5000;
-const uri = process.env.MongoDBURI;
+// const uri = process.env.MongoDBURI;
 
 // Middleware
 app.use(express.json());
 app.use(cors());
 
+// Routes
+app.use("/book", bookRoute);   // http://localhost:5000/book
+app.use("/user", userRoute);   // http://localhost:5000/user
 
-
-app.post("/user",createUser)
-
+app.get("/",()=>{
+  res.json("running no issues ")
+  
+})
 // MongoDB connection
 async function connectDB() {
   try {
-    await mongoose.connect(uri);
+    await mongoose.connect(process.env.MongoDBURI);
     console.log("✅ MongoDB connected successfully");
   } catch (error) {
     console.error("❌ MongoDB connection error:", error);
-    process.exit(1); // stop server if DB fails
+    process.exit(1);
   }
 }
 connectDB();
