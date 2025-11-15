@@ -1,46 +1,37 @@
-import mongoose from "mongoose";
 import express from "express";
+import mongoose from "mongoose";
 import dotenv from "dotenv";
 import cors from "cors";
 
-import bookRoute from "./routes/book.route.js";
-import userRoute from "./routes/user.route.js";   // ✅ FIXED — added user route
+import bookRoute from "./route/book.route.js";
+import userRoute from "./route/user.route.js";
+
+const app = express();
+
+app.get('/', (req, res) => {
+  res.send('Hello World from Express!');
+});
+
+app.use(cors());
+app.use(express.json());
 
 dotenv.config();
 
-const app = express();
-const PORT = process.env.PORT || 5000;
-// const uri = process.env.MongoDBURI;
+const PORT = process.env.PORT || 4000;
+const URI = process.env.MongoDBURI;
 
-// Middleware
-app.use(express.json());
-app.use(cors());
-
-// Routes
-app.use("/book", bookRoute);   // http://localhost:5000/book
-app.use("/user", userRoute);   // http://localhost:5000/user
-
-app.get("/",()=>{
-  res.json("running no issues ")
-  
-})
-// MongoDB connection
-async function connectDB() {
-  try {
-    await mongoose.connect(process.env.MongoDBURI);
-    console.log("✅ MongoDB connected successfully");
-  } catch (error) {
-    console.error("❌ MongoDB connection error:", error);
-    process.exit(1);
-  }
+// connect to mongoDB
+try {
+    mongoose.connect(URI);
+    console.log("Connected to mongoDB");
+} catch (error) {
+    console.log("Error: ", error);
 }
-connectDB();
 
-app.get("/", (req, res) => {
-  res.send("🚀 Express server is running and MongoDB is connected");
-});
+// defining routes
+app.use("/book", bookRoute);
+app.use("/user", userRoute);
 
-// Start server
 app.listen(PORT, () => {
-  console.log(`✅ Server is running on http://localhost:${PORT}`);
+    console.log(`Server is listening on port ${PORT}`);
 });
