@@ -9,7 +9,7 @@ import userRoute from "./route/user.route.js";
 const app = express();
 
 app.get('/', (req, res) => {
-  res.send('Hello World from Express!');
+  res.send('CHAL KYU NHI RAHA YARRRRRRR');
 });
 
 app.use(cors());
