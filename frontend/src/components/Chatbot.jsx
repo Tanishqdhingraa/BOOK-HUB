@@ -79,11 +79,11 @@ function Chatbot() {
   return (
     <div className="w-44 fixed sm:w- bottom-10 right-10 z-50">
       <div className="w-full bg-indigo-600 shadow-2xl rounded-xl border border-indigo-300 overflow-hidden">
-        <div className="bg-indigo-700 text-white p-3 font-semibold text-center text-sm border-b border-indigo-300">
+        <div className="bg-indigo-950 text-white p-3 font-semibold text-center text-sm border-b border-indigo-300">
           Book Hub Bot
         </div>
 
-        <div className="h-64 overflow-y-auto p-3 space-y-2 bg-indigo-500">
+        <div className="h-64 overflow-y-auto p-3 space-y-2 bg-indigo-950">
           {messages.map((m, i) => (
             <div
               key={i}

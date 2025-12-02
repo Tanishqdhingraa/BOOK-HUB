@@ -2,7 +2,7 @@ import React from "react";
 
 const MovingBanner = () => {
   return (
-    <div className="h-72 w-full overflow-hidden bg-indigo-400 py-6 mt-28">
+    <div className="h-72 w-full overflow-hidden bg-indigo-950 py-6 mt-28">
       {/* Heading */}
       <h1 className="text-5xl font-bold text-center text-white mb-6">
         Top Rated Books

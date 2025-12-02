@@ -5,9 +5,9 @@ const Freebooks = () => {
   const filterdata = list.filter((data) => data.price === "free");
 
   return (
-    <div className="px-6 py-16 mt-40 bg-gradient-to-b bg-amber-300">
+    <div className="px-6 py-16 mt-40 bg-indigo-950">
       {/* Heading */}
-      <h1 className="text-4xl md:text-6xl font-extrabold mb-12 text-center text-indigo-700">
+      <h1 className="text-4xl md:text-6xl font-extrabold mb-12 text-center text-white">
         Free Books to Start Reading 📚
       </h1>
 
