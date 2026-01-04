@@ -23,7 +23,7 @@ const URI = process.env.MongoDBURI;
 // connect to mongoDB
 try {
     mongoose.connect(URI);
-    console.log("Connected to mongoDB");
+    console.log(" 🛜  Connected to mongoDB");
 } catch (error) {
     console.log("Error: ", error);
 }
@@ -33,5 +33,5 @@ app.use("/book", bookRoute);
 app.use("/user", userRoute);
 
 app.listen(PORT, () => {
-    console.log(`Server is listening on port http://localhost:${PORT}`);
+    console.log(`😎 Server is listening on port http://localhost:${PORT}`);
 });
