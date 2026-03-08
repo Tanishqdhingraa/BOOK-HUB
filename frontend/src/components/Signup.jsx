@@ -1,6 +1,7 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
+import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -14,14 +15,46 @@ const Signup = () => {
 
   const password = watch("password");
 
+  const navigate = useNavigate();
+
   // SUCCESS SUBMIT
-  const onSubmit = (data) => {
-    toast.success(`Account created for ${data.email} 🎉`, {
-      position: "top-right",
-      autoClose: 3000,
-      pauseOnHover: true,
-      closeOnClick: true,
-    });
+  const onSubmit = async (data) => {
+    try {
+      const res = await axios.post("http://localhost:4000/api/v1/user/signup", {
+        fullname: data.name,
+        email: data.email,
+        password: data.password,
+      });
+
+      if (res.data) {
+        toast.success(`Account created for ${data.email} 🎉`, {
+          position: "top-right",
+          autoClose: 3000,
+          pauseOnHover: true,
+          closeOnClick: true,
+        });
+        localStorage.setItem("Users", JSON.stringify(res.data.user));
+        setTimeout(() => {
+          navigate("/");
+        }, 3000);
+      }
+    } catch (err) {
+      if (err.response) {
+        toast.error("Error: " + err.response.data.message + " ❌", {
+          position: "top-right",
+          autoClose: 3000,
+          pauseOnHover: true,
+          closeOnClick: true,
+        });
+      } else {
+        toast.error("An error occurred ❌", {
+          position: "top-right",
+          autoClose: 3000,
+          pauseOnHover: true,
+          closeOnClick: true,
+        });
+      }
+    }
   };
 
   // ERROR SUBMIT
